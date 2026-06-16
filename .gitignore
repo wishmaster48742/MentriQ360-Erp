@@ -19,6 +19,8 @@ build/
 coverage/
 web/out/
 web/pnpm-lock.yaml.*
+web/tsconfig.tsbuildinfo
+web/pnpm-lock.yaml
 __pycache__/
 *.pyc
 *.pyo
