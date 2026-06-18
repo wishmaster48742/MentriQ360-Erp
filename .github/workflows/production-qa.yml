@@ -9,11 +9,22 @@ on:
 jobs:
   qa:
     runs-on: ubuntu-latest
+    services:
+      mongodb:
+        image: mongo:8
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd "echo 'db.runCommand(\"ping\").ok' | mongosh localhost:27017/test --quiet"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     env:
       DJANGO_SETTINGS_MODULE: config.settings.local
       DJANGO_USE_SQLITE: "True"
-      DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+      DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY || 'ci-only-fallback-secret-key-please-override-with-repo-secret-2026-64-bytes-min' }}
       DJANGO_DEBUG: "False"
+      MONGODB_URI: ${{ secrets.MONGODB_URI || 'mongodb://127.0.0.1:27017/mentriq360' }}
       NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000' }}
       NEXT_PUBLIC_API_BASE_URL: ${{ secrets.NEXT_PUBLIC_API_BASE_URL || vars.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000/api/v1' }}
     steps:
