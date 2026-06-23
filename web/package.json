@@ -1,0 +1,43 @@
+{
+  "name": "mentriq360-web",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.32.1",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:mobile": "cross-env CAPACITOR_BUILD=true next build --webpack && cap sync android",
+    "cap:sync": "cap sync",
+    "cap:copy": "cap copy",
+    "cap:add:android": "cap add android",
+    "cap:open:android": "cap open android",
+    "start": "next start",
+    "lint": "eslint .",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:report": "playwright show-report"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.3.4",
+    "@capacitor/cli": "^8.3.4",
+    "@capacitor/core": "^8.3.4",
+    "lucide-react": "1.14.0",
+    "next": "16.2.7",
+    "react": "19.2.5",
+    "react-dom": "19.2.5"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.20",
+    "cross-env": "^10.1.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "16.2.7",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.0"
+  }
+}

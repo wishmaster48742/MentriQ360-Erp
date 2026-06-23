@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Mentriq360 ERP</string>
+    <string name="title_activity_main">Mentriq360 ERP</string>
+    <string name="package_name">com.mentriq360.erp</string>
+    <string name="custom_url_scheme">com.mentriq360.erp</string>
+</resources>
